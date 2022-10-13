@@ -23,6 +23,7 @@ export function NavBar () {
 
   const dispatch = useDispatch();
   const useHandleChangeLanguage = (event: SelectChangeEvent) => {
+    // document.body.style = "min-height: 100vh; overflow-x: hidden;"
     setLanguage(event.target.value as string);
     dispatch(changeLanguage(event.target.value));
   };
@@ -43,42 +44,46 @@ export function NavBar () {
         sx={{
           borderRadius: "25px", 
           border: globalBorder,
-          fontWeight: "bold",
-          fontSize: "1.2rem",
+          fontWeight: {xs: "normal", sm: "bold"},
         }}>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{display: "flex", justifyContent: "space-between"}}>
           <Box sx={{display: {xs: "none", sm: "flex"}}}>
             <StyledNavLink to={"/"}>VORONOV</StyledNavLink>
           </Box>
           
-          <Box sx={{ 
-            flexGrow: 10, 
-            display: "flex",
-            justifyContent: "right"
-          }}>
-            <StyledNavLink to={"/"}>{navCV[languageFromSlice as keyof typeof navCV]}</StyledNavLink>
-            <StyledNavLink to={"/skills"}>{navSkills[languageFromSlice as keyof typeof navSkills]}</StyledNavLink>
-            <StyledNavLink to={"/contacts"}>{navContacts[languageFromSlice as keyof typeof navContacts]}</StyledNavLink>
+          <Box component="div" sx={{display: "flex", justifyContent: {xs: "center", sm: "space-between"}}}>
+            <Box sx={{ 
+              display: "flex",
+              justifyContent: {xs: "center", sm:"right"},
+              alignContent: "center",
+              alignItems: "center",
+            }}>
+              <StyledNavLink to={"/"}>{navCV[languageFromSlice as keyof typeof navCV]}</StyledNavLink>
+              <StyledNavLink to={"/skills"}>{navSkills[languageFromSlice as keyof typeof navSkills]}</StyledNavLink>
+              <StyledNavLink to={"/contacts"}>{navContacts[languageFromSlice as keyof typeof navContacts]}</StyledNavLink>
+            </Box>
+
+            <Box sx={{ 
+              flexGrow: 1, 
+              display: "flex",
+              justifyContent: "right"
+            }}>
+              <FormControl size="small" color="secondary" fullWidth>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={language}
+                  onChange={useHandleChangeLanguage}
+                  sx={{fontWeight: "bold", color: "#fff", border: "1px solid #fff"}}
+                >
+                  <MenuItem  value={"en"}>EN</MenuItem>
+                  <MenuItem value={"ua"}>UA</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
 
-          <Box sx={{ 
-            flexGrow: 1, 
-            display: "flex",
-            justifyContent: "right"
-          }}>
-            <FormControl size="small" color="secondary">
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={language}
-                onChange={useHandleChangeLanguage}
-                sx={{fontWeight: "bold", fontSize: "1rem", color: "#fff", border: "1px solid #fff"}}
-              >
-                <MenuItem  value={"en"}>EN</MenuItem>
-                <MenuItem value={"ua"}>UA</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
+          
         </Toolbar>
       </Container>
     </AppBar>
