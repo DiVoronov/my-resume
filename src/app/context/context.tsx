@@ -2,30 +2,30 @@ import React, { createContext } from "react";
 
 export const contentLanguages = {
   navbar: {
-    navHome: {
-      en: "",
-      ua: ""
+    navCV: {
+      en: "CV",
+      ua: "Резюме"
     },
     navSkills: {
-      en: "",
-      ua: ""
+      en: "My skills",
+      ua: "Мої навички"
     },
     navContacts: {
-      en: "",
-      ua: ""
+      en: "Contacts",
+      ua: "Контакти"
     }
   },
   home: {
     photoAndDescribe: {
       headerPhoto: {
-        en: "",
-        ua: ""
+        en: "Frontend React Developer",
+        ua: "Фронтенд Реакт розробник"
       },
       cardDescribe: {
         name: {
           titleName: {
-            en: "NAME",
-            ua: "ІМ'Я"
+            en: "NAME:",
+            ua: "ІМ'Я:"
           },
           infoName: {
             "en": "Dmytro VORONOV",
@@ -44,8 +44,8 @@ export const contentLanguages = {
         },
         purpose: {
           titlePurpose: {
-            en: "PURPOSE",
-            ua: "МЕТА"
+            en: "PURPOSE:",
+            ua: "МЕТА:"
           },
           infoPurpose: {
             en: "Create the best app in the World",
@@ -54,7 +54,20 @@ export const contentLanguages = {
         }
       }
     },
-    allInformation: {}
+    allInformation: {
+      workExperiense: {
+        en: "Work Experiense",
+        ua: "Досвід роботи"
+      },
+      listSkills: {
+        en: "List Skills",
+        ua: "Мої навички"
+      },
+      aboutMe: {
+        en: "About Me",
+        ua: "Про мене"
+      }
+    }
   },
   skills: {
     en: "",

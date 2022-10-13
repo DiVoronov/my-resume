@@ -1,29 +1,18 @@
 import React, { useContext } from "react";
 import PhotoHolder from "../PhotoHolder/PhotoHolder";
 import { LanguageContext } from '../../app/context/context';
+import { ObjectLanguage } from "../componentsTypes";
+import { globalBorder, globalBackgroundDiv } from "../../GlobalStyle";
 
-import {
-  Box
-} from "@mui/material";
+import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
-
-type ObjectLanguage = {
-  en: string,
-  ua: string
-}
 
 export function PhotoAndDescribe () {
   
   const languageFromSlice: string = useSelector( (state: any) => state.language);
 
   const contentCardDescribe = useContext(LanguageContext).home.photoAndDescribe.cardDescribe;
-  const contentheaderPhoto = useContext(LanguageContext).home.photoAndDescribe.headerPhoto;
 
-  /*
-   ** const contentElementTranslateNAMEinfo: ObjectLanguage = content.home.photoAndDescribe.cardDescribe.name.infoName;
-   ** type ObjectLanguageKeyNAMEvalue = keyof typeof contentElementTranslateNAMEinfo;
-   ** const currentLanguageValueNAMEinfo = languageFromSlice as ObjectLanguageKeyNAMEvalue;
-  */
   const titleCity: ObjectLanguage = contentCardDescribe.city.titleCity;
   const infoCity: ObjectLanguage = contentCardDescribe.city.infoCity;
   const titleName: ObjectLanguage = contentCardDescribe.name.titleName;
@@ -36,17 +25,31 @@ export function PhotoAndDescribe () {
       component="div" 
       className="photoAndDescribe" 
       sx={{
-        border: "3px solid rgba(255, 255, 255, 0.473)", 
-        m: 5, 
-        p: 5,
+        border: globalBorder, 
+        m: 2, 
+        p: 2,
         display: "flex",
-
-        background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-        borderRadius: "25px"
-      }}>
-      {/* <Box component="div" className="photo">PHOTO</Box> */}
+        flexDirection: {xs: "column", md: "row"},
+        background: globalBackgroundDiv,
+        borderRadius: "25px",
+        justifyContent: "space-between",
+        alignItems: {xs: "stretch", md: "center"},
+      }}
+    >
       <PhotoHolder/>
-      <Box component="div" className="describe" sx={{color: "#fff", border: "3px solid rgba(255, 255, 255, 0.473)", borderRadius: "25px", m: 5, p: 5}}>
+      <Box 
+        component="div" 
+        className="describe" 
+        sx={{
+          color: "#fff", 
+          border: globalBorder, 
+          borderRadius: "25px",
+          background: globalBackgroundDiv,
+          m: 2, 
+          p: 2,
+          flexGrow: "5"
+        }}
+      >
         <Box component="span" >
           <h2>{titleName[languageFromSlice as keyof typeof titleName]}</h2> <p>{infoName[languageFromSlice as keyof typeof infoName]}</p>
         </Box>

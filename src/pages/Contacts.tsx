@@ -1,10 +1,30 @@
 import React from "react";
+import { globalBorder, globalBackgroundDiv } from "../GlobalStyle";
 
-export function Contacts () {
+import { Box } from "@mui/material";
+import { Contacts } from "../components/Contacts/Contacts";
+
+export function ContactsPage () {
 
   return (
     <>
-      <p> CONTACTS PAGE </p>
+      <Box 
+        component="div" 
+        className="allInfo" 
+        sx={{
+          border: globalBorder, 
+          m: 5, 
+          p: 5,
+          display: "flex",
+          flexDirection: "column",
+          background: globalBackgroundDiv,
+          borderRadius: "25px",
+          color: "#fff"
+        }}
+      >
+        My Contacts
+        <Contacts/>
+        </Box>
     </>
   )
 };
