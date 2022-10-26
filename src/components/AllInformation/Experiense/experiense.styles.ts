@@ -2,16 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 export const StyledExperienseComponent = styled.div`
-font-size: 1rem;
 & span {
   display: flex;
+  align-items: center;
   margin: 5px;
+  margin-bottom: 10px;
 }
-& .headSpan {
+& h3 {
   font-weight: 900;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: left;
+  margin-left: 5px;
   margin-top: 10px;
-  color: rgb(148, 97, 97);
 }
-`
+& span {
+  display: flex;
+  text-align: justify;
+  margin-left: 15%;
+}
+& li {
+  margin-left: 15%;
+}
+& div {
+  margin-bottom: 20px;
+}
+`;

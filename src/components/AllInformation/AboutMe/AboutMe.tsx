@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StyledHeadDiv, StyledTextDiv } from "./AboutMe.style";
+
+import { LanguageContext } from "../../../app/context/context";
+import { ObjectLanguageArrayOfObjects, ComplexParagraphs } from "../../componentsTypes";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
+import { globalCustomStyles } from "../../../GlobalStyle";
 
 export function AboutMe () {
 
+  const languageFromSlice: string = useSelector( (state: RootState) => state.language);
+
+  const contentAboutMe: ObjectLanguageArrayOfObjects = useContext(LanguageContext).home.allInformation.aboutMe.textAboutMe;
+
   return (
     <div>
-      <div style={{font: "bold", color: "rgb(148, 97, 97)", fontSize: "2rem"}}>Для мене програмування - це творчість,</div>
-      <div>
-        Будь-які психологічні тести можуть довести, що моєю основною мотивацією та призначенням по життю є постійний розвиток та творча діяльність, спрямована на створення чогось якісно нового. Саме у творчому процесі пошуку та відтворенні знань і навичок на практиці проявляється моя жага до життя.
-      </div>
-      <div style={{font: "bold", color: "rgb(148, 97, 97)", fontSize: "2rem"}}>до якої мене тягнуло з дитинства.</div>
-      <div>
-        З програмуванням я познайомився ще у шкільний час, коли мені полюбилася програма Adobe Flash і я зрозумів, що можна самостійно створювати прості ігри чи мультимедійні програми. Тоді я ще не знав, що те, що я пишу під "рухливими" геометричними фігурами є ніщо інше як мова програмування ActionScript. Я цього не знав, але навички алгоритмізації та захоплення розробкою - залишилось.
-        <br/>
-        На другому курсі, за щасливим збігом обставин, я понурив у новий для себе світ HTML, CSS та Wordpress. Тоді це забуте почуття програмування захопило мене із новою силою, і я писав свої власні сайти, розміщував їх у мережі Інтернет і отримував велике задоволення від цього процесу. Але тоді я сприймав це виключно як приємне хоббі.
-      </div>
-      <div style={{font: "bold", color: "rgb(148, 97, 97)", fontSize: "2rem"}}>З'явився час - і я навчився.</div>
-        
-      <div>
-        Оскільки ще у 18 років я обрав інший шлях - юриспруденція, по якому успішно крокував аж до 24.02.2022. Але відтоді з'явився час та загострення власних бажань, і я з часом зміг повернутися до того, що мене захоплювало у дитинстві та у студентські роки.
-        <br/>
-        І нарешті я зміг опанувати своє звичайне хоббі у професійній формі, завдяки чому зможу реалізувати свої не здійснені плани та проєкти. Проте для цього необхідно пройти ще довгий та складний шлях розвитку та постійного вдосконалення власних навичок.
-      </div>
-      <div style={{font: "bold", color: "rgb(148, 97, 97)", fontSize: "2rem"}}>І зможу вам допомогти</div>
-      <div>
-        Наші цілі збігаються: вам потрібен ідеальний продукт - а я прагну такий ідеальний продукт створити. 
-        У цьому моя жага та моя пристрасть.
-      </div>
+      {contentAboutMe[languageFromSlice as keyof typeof contentAboutMe].map( (paragraph: ComplexParagraphs) => {
+        return (
+          paragraph.type === "h"
+            ? <StyledHeadDiv key={paragraph.index}><p style={{color: globalCustomStyles.globalAccentColor}}>{paragraph.value}</p></StyledHeadDiv>
+            : <StyledTextDiv key={paragraph.index}>{paragraph.value}</StyledTextDiv>
+        )
+      })
+      }
     </div>
-  )
+  );
 };

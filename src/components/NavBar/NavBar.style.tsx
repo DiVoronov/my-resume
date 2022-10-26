@@ -1,20 +1,25 @@
-import * as React from "react";
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { globalAccentColor } from "../../GlobalStyle";
+import { globalCustomStyles } from "../../GlobalStyle";
 
 
-export const StyledNavLink = styled(NavLink)`
-margin: 0px 10px;
-color: inherit;
-text-decoration: none;
-fontSize: 1rem;
-align-self: center;
-justify-content: center;
-&:hover {
-  color: ${globalAccentColor};
+export const StyledNavLink = styled.div`
+& div {
+  margin: 0px 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+& a {
+  text-decoration: none;
+  fontSize: 1rem;
+  align-self: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 450px) {
+  & div {
+    padding: 10px 1px;
+  }
 };
-&:active {
-  color: ${globalAccentColor};
-};
-`
+`;

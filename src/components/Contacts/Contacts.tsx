@@ -1,13 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StyledContactDiv } from "./Contacts.style";
+import { Box } from "@mui/material";
+
+import { useSelector } from "react-redux";
+import { LanguageContext } from "../../app/context/context";
+import { ObjectLanguage } from "../componentsTypes";
+import { RootState } from "../../app/store";
+import { globalCustomStyles } from "../../GlobalStyle";
 
 export function Contacts () {
 
+  const languageFromSlice: string = useSelector( (state: RootState) => state.language);
+
+  const contentContact: ObjectLanguage = useContext(LanguageContext).contacts;
+
   return (
-    <>
-      {/* <div>Telephone: +380502130117</div> */}
-      <div>E-mail: devdivoron@gmail.com</div>
-      <div>GitHub: https://github.com/DiVoronov</div>
-      <div>LinkedIN: https://www.linkedin.com/in/dmytro-voronov-1711a1251/</div>
-    </>
-  )
+    <StyledContactDiv>
+      <Box 
+        component="div" 
+        sx={{
+          color: globalCustomStyles.globalAccentColor, 
+          ["& a"]: {color: globalCustomStyles.globalColor},
+          ["& a:hover"]: {color: globalCustomStyles.globalAccentColor},
+          ["& a:active"]: {color: globalCustomStyles.globalAccentColor}
+        }}
+      >
+        <h1>{contentContact[languageFromSlice as keyof typeof contentContact]}</h1>
+        <div><span>E-mail:</span> <a>devdivoron@gmail.com</a></div>
+        <div><span>GitHub:</span> <a href="https://github.com/DiVoronov" target="_blank">https://github.com/DiVoronov</a></div>
+        <div><span>LinkedIN:</span> <a href="https://www.linkedin.com/in/dmytro-voronov-1711a1251/" target="_blank">https://www.linkedin.com/in/dmytro-voronov-1711a1251/</a></div>
+      </Box>
+      
+    </StyledContactDiv>
+  );
 };

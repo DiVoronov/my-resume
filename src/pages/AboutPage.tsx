@@ -1,10 +1,9 @@
 import React from "react";
 import { globalCustomStyles } from "../GlobalStyle";
-
 import { Box } from "@mui/material";
-import { Contacts } from "../components/Contacts/Contacts";
+import { AboutApp } from "../components/AboutApp/AboutApp";
 
-export function ContactsPage () {
+export function AboutPage () {
 
   return (
       <Box 
@@ -12,7 +11,8 @@ export function ContactsPage () {
         className="allInfo appearDiv" 
         sx={{
           border: globalCustomStyles.globalBorder, 
-          m: 1, p: 1, mt: 3,
+          m: {xs: 1, sm: 3, md: 5}, 
+          p: {xs: 1, sm: 3, md: 5},
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
@@ -22,7 +22,7 @@ export function ContactsPage () {
           boxShadow: globalCustomStyles.globalBoxShadow
         }}
       >
-        <Contacts/>
+        <AboutApp/>
       </Box>
   );
 };

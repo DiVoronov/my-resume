@@ -1,4 +1,8 @@
+import React from "react";
 import { createGlobalStyle } from "styled-components";
+import { globalStyles } from "./app/context/themeContext/themeFunctionProvider"
+
+export const globalCustomStyles = globalStyles;
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -14,15 +18,58 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
-  #root {
-    background: rgba(0, 0, 0, 0.87);
+  body {
+    padding-right: 0px !important;
   }
 
-  li {
-    margin-left: 1rem;
+  #root {
+    font-size: 1rem;
+    font-weight: 450;
+  }
+
+  @media screen and (max-width: 450px) {
+    #root {
+      font-size: 0.7rem;
+    }
+  }
+
+  span {
+    animation: .7s appearHead ease-in;
+  }
+
+  .appearDiv {
+    animation: .7s appearDiv ease-in;
+  }
+
+  span::selection, 
+  h1::selection, 
+  h2::selection, 
+  h3::selection,
+  a::selection,
+  div::selection, 
+  p::selection {
+    background: rgba(215, 136, 231, 0.2);
+  }
+
+  @keyframes appearHead {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  @keyframes appearDiv {
+    0% {
+      opacity: 0;
+      box-shadow: none;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 `;
-
-export const globalBorder = "3px solid rgba(255, 255, 255, 0.5)";
-export const globalBackgroundDiv = "linear-gradient(150deg, rgba(255, 255, 255, 0.356), rgba(245, 245, 245, 0), rgba(245, 245, 245, 0),rgba(245, 245, 245, 0))";
-export const globalAccentColor = "rgb(215, 136, 231)";

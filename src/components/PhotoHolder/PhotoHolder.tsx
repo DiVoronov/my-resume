@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
 import { Box, Avatar } from "@mui/material";
 
-import { LanguageContext } from '../../app/context/context';
+import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../componentsTypes";
 import { useSelector } from "react-redux";
 import { useGetAvatarByLoginQuery } from "../../app/avatar.api/avatar.api";
-import { globalBorder, globalBackgroundDiv } from "../../GlobalStyle";
+import { globalCustomStyles } from "../../GlobalStyle";
 import { LoaderAvatar } from "./LoaderAvatar";
+import logo from "../../bigAvatar.png";
+import { RootState } from "../../app/store";
 
 export default function PhotoHolder() {
 
-  const languageFromSlice: string = useSelector( (state: any) => state.language);
+  const languageFromSlice: string = useSelector( (state: RootState) => state.language);
 
   const contentPhotoHolder: ObjectLanguage = useContext(LanguageContext).home.photoAndDescribe.headerPhoto;
 
@@ -29,10 +31,10 @@ export default function PhotoHolder() {
         flexShrink: "5",
         alignItems: "center",
         borderRadius: "25px",
-        background: globalBackgroundDiv,
-        m: 2,
-        p: 2
-
+        background: globalCustomStyles.globalBackgroundDiv,
+        boxShadow: globalCustomStyles.globalBoxShadow,
+        border: globalCustomStyles.globalBorder,
+        m: 2, p: 2
       }}>
         { isLoading 
           ? <LoaderAvatar/>
@@ -40,17 +42,17 @@ export default function PhotoHolder() {
             <Avatar
               alt="Avatar"
               src={data.avatar_url}
-              sx={{ width: {xs: "100px", md: "200px"}, height: {xs: "100px", md: "200px"}, m: 2 }}
+              sx={{ width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, boxShadow: globalCustomStyles.globalBoxShadow, border: globalCustomStyles.globalBorder}}
             />
           ) : error && (
             <Avatar
               alt="Avatar"
-              src={""}
-              sx={{ width: {xs: "100px", md: "200px"}, height: {xs: "100px", md: "200px"}, m: 2 }}
+              src={logo}
+              sx={{ width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, boxShadow: globalCustomStyles.globalBoxShadow, border: globalCustomStyles.globalBorder }}
             />
           )
         }
-        <Box component="span" sx={{fontSize: "1rem", color: "#fff"}}>{contentPhotoHolder[languageFromSlice as keyof typeof contentPhotoHolder]}</Box>
+        <Box component="span" sx={{fontSize: "1rem", color: globalCustomStyles.globalColor, textAlign: "center"}}>{contentPhotoHolder[languageFromSlice as keyof typeof contentPhotoHolder]}</Box>
     </Box>
   );
-}
+};

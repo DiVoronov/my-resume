@@ -1,91 +1,111 @@
-import React, { useContext, useState } from "react";
-import { LanguageContext } from '../../app/context/context';
+import React, { useContext, useRef, useEffect } from "react";
+import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../componentsTypes";
 import { useSelector } from "react-redux";
 import { Experiense } from "./Experiense/Experiense";
-import { Skills } from './Skills/Skills';
+import { Skills } from "./Skills/Skills";
 import { AboutMe } from "./AboutMe/AboutMe";
-import { globalBorder, globalBackgroundDiv } from "../../GlobalStyle";
+import { globalCustomStyles } from "../../GlobalStyle";
+import { StyledHeader } from "./AllInformation.style";
+import { Box } from "@mui/material";
+import { RootState } from "../../app/store";
 
-import {
-  Box
-} from "@mui/material";
+import { changeHardSkills, changeAbout } from "../../app/slices/appearSlice";
+import { useAppearForElement } from "../../app/hooks";
 
 export function AllInformation () {
 
-  const languageFromSlice: string = useSelector( (state: any) => state.language);
+  const refELementHardSkills = useRef(null);
+  const refELementAbout = useRef(null);
+
+  const languageFromSlice: string = useSelector( (state: RootState) => state.language);
+  const isVisibleFromSlice = useSelector( (state: RootState) => state.appear);
+  const isVisibleHardSkills: boolean = isVisibleFromSlice.hardSkills;
+  const isVisibleAbout: boolean = isVisibleFromSlice.about;
+
+  useAppearForElement(refELementHardSkills, changeHardSkills, isVisibleHardSkills);
+  useAppearForElement(refELementAbout, changeAbout, isVisibleAbout);
 
   const contentCardDescribe = useContext(LanguageContext).home.allInformation;
 
-  const experiense: ObjectLanguage = contentCardDescribe.workExperiense;
-  const skills: ObjectLanguage = contentCardDescribe.listSkills;
-  const aboutMe: ObjectLanguage = contentCardDescribe.aboutMe;
+  const experiense: ObjectLanguage = contentCardDescribe.workExperiense.titleExperiense;
+  const aboutMe: ObjectLanguage = contentCardDescribe.aboutMe.titleAboutMe;
 
-  const [offset, setOffset] = useState(0);
-
+  const currentTheme = useSelector( (state: RootState) => state.theme);
 
   return(
     <Box 
-      component="div" 
+      component="div"
       className="allInfo" 
       sx={{
-        border: globalBorder,
         boxSizing: "border-box",
         justifyContent: "space-between",
-        m: 2,
+        mt: 2, mb: 2,
+        p: {xs: "5px", lg: "20px"},
         display: "flex",
         flexDirection: "column",
         borderRadius: "25px",
-        color: "#fff"
+        color: globalCustomStyles.globalColor,
       }}
     >
       <Box 
         component="div" 
         sx={{
           display: "flex", 
-          flexDirection: {xs: "column", lg: "row"},
+          flexDirection: {xs: "column", md: "row"},
           justifyContent: "space-between",
         }}>
         <Box 
           component="div" 
-          className="workExperiense" 
+          className="workExperiense appearDiv" 
           sx={{
-            border: globalBorder,
-            background: globalBackgroundDiv,
+            border: globalCustomStyles.globalBorder,
+            background: globalCustomStyles.globalBackgroundDiv,
+            boxShadow: globalCustomStyles.globalBoxShadow,
             borderRadius: "25px",
             width: {lg: "50%"}, 
-            m: 2, p: 2
+            m: {xs: "5px", md: "20px"}, 
+            p: 2
           }}>
-          <h1>{experiense[languageFromSlice as keyof typeof experiense]}</h1>
+          <StyledHeader>{experiense[languageFromSlice as keyof typeof experiense]}</StyledHeader>
           <Experiense/>
         </Box>
-        <Box 
-          component="div" 
-          className="listSkills" 
-          sx={{
-            border: globalBorder,
-            background: globalBackgroundDiv,
-            borderRadius: "25px",
-            width: {lg: "50%"}, 
-            m: 2, p: 2
-          }}>
-          <h1>{skills[languageFromSlice as keyof typeof skills]}</h1>
-          <Skills/>
-        </Box>
+        <div ref={refELementHardSkills}></div>
+        { isVisibleHardSkills && 
+          <Box 
+            component="div" 
+            className="listSkills appearDiv" 
+            sx={{
+              borderRadius: "25px",
+              width: {lg: "50%"}, 
+              m: {xs: "5px", md: "20px"}, 
+            }}>
+            <Skills/>
+          </Box>
+        }
       </Box>
-      
-      <Box 
-        component="div" 
-        className="aboutMe" 
-        sx={{
-          border: globalBorder,
-          background: globalBackgroundDiv,
-          borderRadius: "25px", 
-          m: 2, p: 2
-        }}>
-        <h1>{aboutMe[languageFromSlice as keyof typeof aboutMe]}</h1>
-        <AboutMe/>
-        </Box>
+      <Box
+        component="div"
+      >
+        <div ref={refELementAbout}></div>
+        { isVisibleAbout &&
+          <Box 
+            component="div" 
+            className="aboutMe appearDiv" 
+            sx={{
+              border: globalCustomStyles.globalBorder,
+              background: globalCustomStyles.globalBackgroundDiv,
+              boxShadow: globalCustomStyles.globalBoxShadow,
+              borderRadius: "25px", 
+              m: {xs: "5px", md: "20px"}, 
+              p: 2
+            }}
+          >
+            <StyledHeader>{aboutMe[languageFromSlice as keyof typeof aboutMe]}</StyledHeader>
+            <AboutMe/>
+          </Box>
+        }
+      </Box>
     </Box>
-  )
+  );
 };
