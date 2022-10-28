@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch, { SwitchProps } from "@mui/material/Switch";
+import Switch from "@mui/material/Switch";
 import { useAppDispatch } from "../../app/hooks";
 import { changeTheme } from "../../app/slices/themeSlice";
 import { useSelector } from "react-redux";

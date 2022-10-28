@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { PhotoAndDescribe } from "../components/PhotoAndDescribe/PhotoAndDescribe";
 import { AllInformation } from "../components/AllInformation/AllInformation";
 

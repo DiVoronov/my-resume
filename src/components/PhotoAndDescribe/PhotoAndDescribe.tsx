@@ -19,12 +19,9 @@ export function PhotoAndDescribe () {
       component="div" 
       className="photoAndDescribe" 
       sx={{
-        // border: globalCustomStyles.globalBorder, 
         mt: 2, mb: 2, p: 1,
         display: "flex",
         flexDirection: {xs: "column", md: "row"},
-        // background: globalCustomStyles.globalBackgroundDiv,
-        // boxShadow: globalCustomStyles.globalBoxShadow,
         borderRadius: "25px",
         justifyContent: "center",
         alignItems: {xs: "stretch", md: "center"},

@@ -27,6 +27,7 @@ export function Skills () {
 
   const titleProgrammingLang: ObjectLanguage = contentSkills.titleProgrammingLang;
   const titleLang: ObjectLanguage = contentSkills.titleLang;
+  const ukrainian: ObjectLanguage = contentSkills.ukrainian;
   const titleStack: ObjectLanguage = contentSkills.titleStack;
   const softSkills: ObjectLanguageParagraph = contentSkills.softSkills;
   
@@ -72,7 +73,7 @@ export function Skills () {
                 <div>{titleLang[languageFromSlice as keyof typeof titleLang]}</div>
                 <ul>
                   <li><span><RemoveIcon color="secondary"/>English - B1</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Українська - рідна</span></li>
+                  <li><span><RemoveIcon color="secondary"/>Українська - {ukrainian[languageFromSlice as keyof typeof ukrainian]}</span></li>
                 </ul>
               </li>
             </ul>

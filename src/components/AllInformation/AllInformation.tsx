@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef } from "react";
 import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../componentsTypes";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import { RootState } from "../../app/store";
 
 import { changeHardSkills, changeAbout } from "../../app/slices/appearSlice";
-import { useAppearForElement } from "../../app/hooks";
+import { useAppearForElement, AppearObject } from "../../app/hooks";
 
 export function AllInformation () {
 
@@ -19,7 +19,7 @@ export function AllInformation () {
   const refELementAbout = useRef(null);
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
-  const isVisibleFromSlice = useSelector( (state: RootState) => state.appear);
+  const isVisibleFromSlice: AppearObject = useSelector( (state: RootState) => state.appear);
   const isVisibleHardSkills: boolean = isVisibleFromSlice.hardSkills;
   const isVisibleAbout: boolean = isVisibleFromSlice.about;
 
@@ -81,6 +81,7 @@ export function AllInformation () {
               m: {xs: "5px", md: "20px"}, 
             }}>
             <Skills/>
+            
           </Box>
         }
       </Box>
@@ -88,7 +89,7 @@ export function AllInformation () {
         component="div"
       >
         <div ref={refELementAbout}></div>
-        { isVisibleAbout &&
+        { isVisibleAbout && 
           <Box 
             component="div" 
             className="aboutMe appearDiv" 
