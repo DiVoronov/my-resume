@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+MY RESUME
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Dmytro Voronov
 
-## Available Scripts
+* This web application is written entirely in TypeScript with the necessary typing, in particular when making asynchronous requests in the avatar.api.ts file, because strictly typing the response from the server will help prevent possible errors.
+* This web application implements routing using the React Router DOM, which allows you to move between pages without rendering delays.
+* A language change system is also implemented using the Redux Toolkit by dispatching a string with the desired language to the state stored in languageSlice.tsx. Such logic provides instant rendering of only those elements that depend on the state of the language.
+* The application implements an avatar using RTK Query: an asynchronous request is made to api.github.com, to which a special fetchBaseQuery request is sent to obtain information on the DiVoronov account. After - a link to the avatar from GitHub is transferred from the received object to the PhotoHolder component.
+* The above component handles possible errors, and depending on the response from the server renders: either a Skeleton loader if the status isLoading, or an avatar from GitHub if the response from the server is successful, or a special image if an error occurred.
+* The smooth appearance of elements when scrolling to the bottom of the screen is implemented using the Intersection Observer.
+* Instant change between dark and light themes are implemented using the Redux Toolkit by dispatching a string with the desired theme to the state stored in themeSlice.tsx. And then each component accepts the corresponding state and, in accordance with it, applies variable topics created using createContext.
+* The main components are imported from the Material UI library.
+* For code cleanliness and ease of styling, some components are styled using the Styled Components library. Additionally, global styles are set via createGlobalStyle.
+* Styling uses SCSS syntax using multi-level nesting and variables.
 
-In the project directory, you can run:
+__________________________________________________ 
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Даний веб-застосунок повністю написаний на TypeScript із необхідною типізацією, зокрема при здійсненні асинхронних запитів у файлі avatar.api.ts, оскільки строга типізація відповіді із серверу допоможе запобігти вірогідним помилкам.
+* У даному веб-застосунку реалізований роутінг за допомогою React Router DOM, що надає змогу переходу між сторінками без затримки рендерінгу.
+* Також реалізована система зміни мови завдяки використанню Redux Toolkit через діспатчінг строки з бажаною мовою до стейту, що зберігається у languageSlice.tsx. Така логіка забезпечує моментальний рендерінг тільки тих елементів, які залежать від стейту мови.
+* У застосунку реалізовано аватар за допомогою RTK Query: робиться асинхронний запит на api.github.com, якому передається спеціальний запит за fetchBaseQuery на отримання інформації по акаунту DiVoronov. Після - з отриманого об'єкту передається посилання на аватар з GitHub у компонент PhotoHolder.
+* Вищезазначений компонент обробляє вірогідні помилки, та залежно від відповіді з серверу рендерить: або лоадер Skeleton, якщо статус isLoading, або аватар з GitHub, якщо відповідь з серверу є успішною, або спеціальну картинку, якщо відбулася помилка."
+* Плавна поява елементів при прокрутці до низу екрану реалізована за допомогою Intersection Observer.
+* Миттєва зміна темної та світлої тем реалізовано завдяки використанню Redux Toolkit через діспатчінг строки з бажаною темою до стейту, що зберігається у themeSlice.tsx. А далі кожен компонент приймає відповідний стейт та, відповідно до нього, застосовує перемінні теми, що створені за допомогою createContext.
+* Основні компоненти імпортовані з бібліотеки Material UI.
+* З метою чистоти коду та зручності стилізації, деякі компоненти стилізовано за допомогою бібліотеки Styled Components. Окрім того, глобальні стилі задано через createGlobalStyle.
+* Для стилізації використовується синтаксис SCSS із використанням многорівневої вкладеності та перемінних.
