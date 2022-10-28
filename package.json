@@ -1,7 +1,7 @@
 {
   "name": "my-resume",
   "version": "0.1.0",
-  "homepage": "https://https://divoronov.github.io/my-resume/public/index.html",
+  "homepage": "https://https://divoronov.github.io/my-resume/public/index.html/",
   "private": true,
   "dependencies": {
     "@charlietango/use-native-lazy-loading": "^1.10.0",
