@@ -26,7 +26,7 @@ export function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path="/" element={<CV/>} />
+          <Route path="/home" element={<CV/>} />
           <Route path="/contacts" element={<ContactsPage/>} />
           <Route path="/about" element={<AboutPage/>} />
         </Routes>

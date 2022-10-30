@@ -36,7 +36,7 @@ export function NavBarListPath ( { styleBox }: any ) {
               }}
             >
               <NavLink to={
-                `${navBarElement == navCV ? "/" : navBarElement == navAboutApp ? "/about" : "/contacts"}`
+                `${navBarElement == navCV ? "/home" : navBarElement == navAboutApp ? "/about" : "/contacts"}`
                 }> {navBarElement[languageFromSlice as keyof typeof navBarElement]}
               </NavLink>
             </Box>
