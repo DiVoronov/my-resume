@@ -154,6 +154,34 @@ export const contentLanguages = {
   contacts: {
     en: "My contacts",
     ua: "Мої контакти"
+  },
+  welcomePage: {
+    firstTitle: {
+      en: "Welcome",
+      ua: "Вітаю"
+    },
+    secondTitle: {
+      en: "Here are my CV and Pet-project written using my basic programming skills",
+      ua: "Це моє резюме та Pet-проєкт, які написані із використанням моїх основних навичок програмування"
+    },
+    thirdTitle: {
+      en: "You can visit:",
+      ua: "Ви можете відвідати:"
+    },
+    buttons: {
+      cv: {
+        en: "MY RESUME WHICH CONTAINS BASIC INFORMATION ABOUT ME, MY SKILLS AND MY EXPERIENCE",
+        ua: "МОЄ РЕЗЮМЕ, ЩО МІСТИТЬ ОСНОВНУ ІНФОРМАЦІЮ ПРО МЕНЕ, МОЇ НАВИЧКИ ТА МІЙ ДОСВІД"
+      },
+      about: {
+        en: "BASIC INFORMATION ABOUT THIS WEB APPLICATION",
+        ua: "ОСНОВНА ІНФОРМАЦІЯ ПРО ЦЕЙ ВЕБ-ДОДАТОК"
+      },
+      contacts: {
+        en: "PAGE WITH MY CONTACTS",
+        ua: "СТОРІНКА ІЗ МОЇМИ КОНТАКТАМИ"
+      }
+    }
   }
 };
 

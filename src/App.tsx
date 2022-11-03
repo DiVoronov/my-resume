@@ -11,11 +11,13 @@ import { ThemeFunctionProvider } from "./app/context/themeContext/themeFunctionP
 import { ThemeContext } from "./app/context/themeContext/themeContext";
 
 import { useSelector } from "react-redux";
-import { RootState } from "./app/store";
+import { RootState } from './app/store';
+import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 
 
 export function App() {
   const currentTheme = useSelector( (state: RootState) => state.theme);
+  const isRenderWelcome = useSelector( (state: RootState)=> state.welcomePage);
   const themes = useContext(ThemeContext);
   const globalRootColor = themes[currentTheme as keyof typeof themes].globalRootColor
 
@@ -29,9 +31,10 @@ export function App() {
           <Route path="/" element={<CV/>} />
           <Route path="/contacts" element={<ContactsPage/>} />
           <Route path="/about" element={<AboutPage/>} />
+          <Route path="*" element={<></>} />
         </Routes>
+        { isRenderWelcome && <WelcomePage/> }
       </BrowserRouter>
-      
     </Box>
   );
 };

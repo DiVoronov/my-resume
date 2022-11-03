@@ -3,12 +3,14 @@ import { languageReducer } from "./slices/languageSlice";
 import { avatarApi } from "./avatar.api/avatar.api";
 import { appearReducer } from "./slices/appearSlice";
 import { themeReducer } from "./slices/themeSlice";
+import { welcomeReducer } from "./slices/welcomeSlice";
 
 export const store = configureStore({
   reducer: {
     language: languageReducer,
     appear: appearReducer,
     theme: themeReducer,
+    welcomePage: welcomeReducer,
     [avatarApi.reducerPath]: avatarApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(avatarApi.middleware)
