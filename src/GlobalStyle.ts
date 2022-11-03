@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     padding-right: 0px !important;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   #root {
@@ -29,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @media screen and (max-width: 450px) {
     #root {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
   }
 
