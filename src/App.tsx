@@ -19,13 +19,13 @@ export function App() {
   const currentTheme = useSelector( (state: RootState) => state.theme);
   const isRenderWelcome = useSelector( (state: RootState)=> state.welcomePage);
   const themes = useContext(ThemeContext);
-  const globalRootColor = themes[currentTheme as keyof typeof themes].globalRootColor
+  const globalRootColor = themes[currentTheme as keyof typeof themes].globalRootColor;
 
   return (
     <Box component="div" sx={{p: 1, background: globalRootColor}}>
       <GlobalStyle/>
       <ThemeFunctionProvider/>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <NavBar/>
         <Routes>
           <Route path="/" element={<CV/>} />
