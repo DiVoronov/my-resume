@@ -13,6 +13,14 @@ import { useAppearForElement } from "../../../app/hooks";
 
 import { globalCustomStyles } from "../../../GlobalStyle";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "../../../app/context/themeContext/themeContext";
+
 export function Skills () {
 
   const refELement = useRef(null);
@@ -36,9 +44,12 @@ export function Skills () {
       <Box
         component="div"
         sx={{
-          border: globalCustomStyles.globalBorder,
-          background: globalCustomStyles.globalBackgroundDiv,
-          boxShadow: globalCustomStyles.globalBoxShadow,
+          // border: globalCustomStyles.globalBorder,
+          // background: globalCustomStyles.globalBackgroundDiv,
+          // boxShadow: globalCustomStyles.globalBoxShadow,
+          border: `3px solid ${paletteFour}`,
+          background: paletteTwo,
+          boxShadow: `8px 8px 0px ${paletteThree}`,
           ["& div"]: {color: globalCustomStyles.globalAccentColor}
         }}
       >
@@ -83,9 +94,12 @@ export function Skills () {
           <Box
           component="div"
           sx={{
-            border: globalCustomStyles.globalBorder,
-            background: globalCustomStyles.globalBackgroundDiv,
-            boxShadow: globalCustomStyles.globalBoxShadow,
+            // border: globalCustomStyles.globalBorder,
+            // background: globalCustomStyles.globalBackgroundDiv,
+            // boxShadow: globalCustomStyles.globalBoxShadow,
+            border: `3px solid ${paletteFour}`,
+            background: paletteTwo,
+            boxShadow: `8px 8px 0px ${paletteThree}`,
           }}
           >
             <h2>Soft Skills:</h2>

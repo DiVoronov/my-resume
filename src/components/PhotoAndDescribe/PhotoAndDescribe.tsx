@@ -8,6 +8,14 @@ import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "../../app/context/themeContext/themeContext";
+
 export function PhotoAndDescribe () {
   
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
@@ -32,11 +40,15 @@ export function PhotoAndDescribe () {
         component="div" 
         className="describe" 
         sx={{
-          color: globalCustomStyles.globalColor, 
+          // color: globalCustomStyles.globalColor, 
+          color: paletteFive, 
           borderRadius: "25px",
-          background: globalCustomStyles.globalBackgroundDiv,
-          boxShadow: globalCustomStyles.globalBoxShadow,
-          border: globalCustomStyles.globalBorder,
+          // background: globalCustomStyles.globalBackgroundDiv,
+          // boxShadow: globalCustomStyles.globalBoxShadow,
+          // border: globalCustomStyles.globalBorder,
+          border: `3px solid ${paletteFour}`,
+          background: paletteTwo,
+          boxShadow: `8px 8px 0px ${paletteThree}`,
           m: 2, p: 2,
           flexGrow: "5"
         }}

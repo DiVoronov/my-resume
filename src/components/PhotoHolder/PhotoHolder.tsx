@@ -10,6 +10,15 @@ import { LoaderAvatar } from "./LoaderAvatar";
 import logo from "../../bigAvatar.png";
 import { RootState } from "../../app/store";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "../../app/context/themeContext/themeContext";
+import { StyledPhotoHolder } from "./PhotoHolder.style";
+
 export default function PhotoHolder() {
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
@@ -19,40 +28,50 @@ export default function PhotoHolder() {
   const { data, error, isLoading } = useGetAvatarByLoginQuery("DiVoronov");
 
   return (
-    <Box
-      component="div"
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        alignContent: "center",
-        flexDirection: "column",
-        flexShrink: "5",
-        alignItems: "center",
-        borderRadius: "25px",
-        background: globalCustomStyles.globalBackgroundDiv,
-        boxShadow: globalCustomStyles.globalBoxShadow,
-        border: globalCustomStyles.globalBorder,
-        m: 2, p: 2
+    <StyledPhotoHolder
+      style={{
+        // background: globalCustomStyles.globalBackgroundDiv,
+        // boxShadow: globalCustomStyles.globalBoxShadow,
+        // border: globalCustomStyles.globalBorder,
+        border: `3px solid ${paletteFour}`,
+        background: paletteTwo,
+        boxShadow: `8px 8px 0px ${paletteThree}`,
       }}>
         { isLoading 
           ? <LoaderAvatar/>
           : data ? (
             <Avatar
               alt="Avatar"
+              className="avatarAPI"
               src={data.avatar_url}
-              sx={{ width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, boxShadow: globalCustomStyles.globalBoxShadow, border: globalCustomStyles.globalBorder}}
+              sx={{ 
+                width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, 
+                // boxShadow: globalCustomStyles.globalBoxShadow, 
+                // border: globalCustomStyles.globalBorder
+                boxShadow: `8px 8px 0px ${paletteThree}`,
+                border: `3px solid ${paletteFour}`,
+              }}
             />
           ) : error && (
             <Avatar
               alt="Avatar"
               src={logo}
-              sx={{ width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, boxShadow: globalCustomStyles.globalBoxShadow, border: globalCustomStyles.globalBorder }}
+              sx={{ 
+                width: {xs: "150px", md: "200px"}, height: {xs: "150px", md: "200px"}, m: 2, 
+                // boxShadow: globalCustomStyles.globalBoxShadow, 
+                // border: globalCustomStyles.globalBorder 
+                boxShadow: `8px 8px 0px ${paletteThree}`,
+                border: `3px solid ${paletteFour}`,
+              }}
             />
           )
         }
-        <Box component="span" sx={{fontSize: "1rem", color: globalCustomStyles.globalColor, textAlign: "center"}}>{contentPhotoHolder[languageFromSlice as keyof typeof contentPhotoHolder]}</Box>
-    </Box>
+        <Box component="span" sx={{
+            fontSize: "1rem", 
+            // color: globalCustomStyles.globalColor,
+            color: paletteFive,
+            textAlign: "center"
+          }}>{contentPhotoHolder[languageFromSlice as keyof typeof contentPhotoHolder]}</Box>
+    </StyledPhotoHolder>
   );
 };

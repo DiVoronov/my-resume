@@ -5,6 +5,7 @@ import { globalCustomStyles } from "../../GlobalStyle";
 
 
 export const StyledNavLink = styled.div`
+font-family: 'Yanone Kaffeesatz', sans-serif;
 & div {
   margin: 0px 10px;
   padding: 10px;

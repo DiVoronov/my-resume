@@ -25,6 +25,14 @@ import CustomizedSwitches from "./SwitchTheme";
 
 import logo from "../../logoBig.png";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "../../app/context/themeContext/themeContext";
+
 export function NavBar () {
 
   const [language, setLanguage] = useState("en");
@@ -47,10 +55,14 @@ export function NavBar () {
     left: "1rem", top: "4rem",
     zIndex: "1301",
     ["& > div"]: {m: 1},
-    background: globalCustomStyles.globalBackgroundDiv,
-    border: globalCustomStyles.globalBorder,
-    borderRadius: "20px",
-    boxShadow: globalCustomStyles.globalBoxShadow,
+    // background: globalCustomStyles.globalBackgroundDiv,
+    // border: globalCustomStyles.globalBorder,
+    // borderRadius: "20px",
+    // boxShadow: globalCustomStyles.globalBoxShadow,
+    boxShadow: `8px 8px 0px ${paletteThree}`,
+    background: paletteOne,
+    border: `1px solid ${paletteFour}`,
+
     flexDirection: {xs: "column", sm:"none"},
     justifyContent: {xs: "center", sm:"right"},
     alignContent: "center",
@@ -65,14 +77,24 @@ export function NavBar () {
   };
 
   return (
-    <AppBar position="static" sx={{borderRadius: "25px", background: "none", mt: 0}}>
+    <AppBar position="static" sx={{
+      // borderRadius: "25px", 
+      background: "none", 
+      boxShadow: "none",
+      mt: 0,
+      mb: 2
+      }}>
       <Box 
         component="div" 
         sx={{
-          borderRadius: "25px", 
-          border: globalCustomStyles.globalBorder,
-          boxShadow: globalCustomStyles.globalBoxShadow,
-          background: globalCustomStyles.globalBackgroundDiv,
+          // borderRadius: "25px", 
+          // border: globalCustomStyles.globalBorder,
+          // boxShadow: globalCustomStyles.globalBoxShadow,
+          // background: globalCustomStyles.globalBackgroundDiv,
+          boxShadow: `8px 8px 0px ${paletteThree}`,
+          background: paletteOne,
+          borderBottom: `3px solid ${paletteFour}`,
+          
           fontWeight: {xs: "normal", sm: "bold"},
           pr: 1, pl: 1
         }}>
@@ -80,7 +102,7 @@ export function NavBar () {
         <Toolbar disableGutters sx={{display: "flex", justifyContent: {xs: "space-around", sm: "space-between"}, width: "100%"}}>
           <Box sx={{display: {xs: "none", sm: "flex"}}}>
             <StyledNavLink>
-              <NavLink to={"/"}><img src={logo} alt="logo"/></NavLink>
+              <NavLink to={"/"}><img src={logo} style={{border: `1px solid ${paletteFour}`, borderRadius: "50%"}} alt="logo"/></NavLink>
             </StyledNavLink>
           </Box>
           
@@ -128,7 +150,15 @@ export function NavBar () {
                     id="demo-simple-select"
                     value={language}
                     onChange={useHandleChangeLanguage}
-                    sx={{fontWeight: "bold", boxShadow: globalCustomStyles.globalBoxShadow, color: globalCustomStyles.globalColor, border: "1px solid #fff"}}
+                    sx={{
+                      fontWeight: "bold", 
+                      // boxShadow: globalCustomStyles.globalBoxShadow, 
+                      // color: globalCustomStyles.globalColor, 
+                      // border: "1px solid #fff"
+                      color: paletteFive, 
+                      
+                      border: `1px solid ${paletteTwo}`
+                    }}
                   >
                     <MenuItem value={"en"}>EN</MenuItem>
                     <MenuItem value={"ua"}>UA</MenuItem>

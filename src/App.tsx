@@ -14,6 +14,13 @@ import { useSelector } from "react-redux";
 import { RootState } from './app/store';
 import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "./app/context/themeContext/themeContext";
 
 export function App() {
   const currentTheme = useSelector( (state: RootState) => state.theme);
@@ -22,7 +29,11 @@ export function App() {
   const globalRootColor = themes[currentTheme as keyof typeof themes].globalRootColor;
 
   return (
-    <Box component="div" sx={{p: 1, background: globalRootColor}}>
+    <Box component="div" sx={{
+      // p: 1, 
+      // background: globalRootColor
+      background: paletteOne
+      }}>
       <GlobalStyle/>
       <ThemeFunctionProvider/>
       <BrowserRouter basename={process.env.PUBLIC_URL}>

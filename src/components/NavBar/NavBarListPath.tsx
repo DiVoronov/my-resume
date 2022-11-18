@@ -10,6 +10,14 @@ import { globalCustomStyles } from "../../GlobalStyle";
 import { RootState } from "../../app/store";
 import { NavLink } from "react-router-dom";
 
+import {
+  paletteOne,
+  paletteTwo,
+  paletteThree,
+  paletteFour,
+  paletteFive
+} from "../../app/context/themeContext/themeContext";
+
 export function NavBarListPath ( { styleBox }: any ) {
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
@@ -30,12 +38,15 @@ export function NavBarListPath ( { styleBox }: any ) {
           <StyledNavLink key={index}>
             <Box 
               sx={{
-                ["&:hover"]: {boxShadow: globalCustomStyles.shadowNavLink},
+                // ["&:hover"]: {boxShadow: globalCustomStyles.shadowNavLink},
+                // ["& a"]: {color: globalCustomStyles.globalColor},
+                // ["& a:hover"]: {color: globalCustomStyles.globalAccentColor},
+                ["&:hover"]: {boxShadow: `5px 5px 0px ${paletteThree}`, border: `1px solid ${paletteThree}`, color: paletteThree},
                 ["& a"]: {color: globalCustomStyles.globalColor},
-                ["& a:hover"]: {color: globalCustomStyles.globalAccentColor},
+                ["& a:hover"]: {color: paletteThree},
               }}
             >
-              <NavLink to={
+              <NavLink style={{fontFamily: "'Yanone Kaffeesatz', sans-serif", letterSpacing: "2px", color: paletteFive, minWidth: "2rem", fontSize: "4vh"}} to={
                 `${navBarElement == navCV ? "/" : navBarElement == navAboutApp ? "/about" : "/contacts"}`
                 }> {navBarElement[languageFromSlice as keyof typeof navBarElement]}
               </NavLink>

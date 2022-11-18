@@ -7,6 +7,7 @@ import { RootState } from "../app/store";
 import { changeAllInformation } from "../app/slices/appearSlice";
 import { useAppearForElement } from "../app/hooks";
 import { hideWelcomePage } from "../app/slices/welcomeSlice";
+import { HighBlock } from "../components/ParallaxComponents/HighBlock";
 
 export function CV () {
   
@@ -14,7 +15,7 @@ export function CV () {
 
   const isVisibleFromSlice: boolean = useSelector( (state: RootState) => state.appear.allInformation);
 
-  useAppearForElement(refELement, changeAllInformation, isVisibleFromSlice);
+  // useAppearForElement(refELement, changeAllInformation, isVisibleFromSlice);
 
   const dispatch = useDispatch();
   useEffect( () => {
@@ -23,9 +24,12 @@ export function CV () {
 
   return (
     <div style={{minHeight: "100vh"}}>
+      <HighBlock/>
       <PhotoAndDescribe/>
-      <div ref={refELement}></div>
-      { isVisibleFromSlice && (<AllInformation/>) }
+      {/* <div ref={refELement}></div> */}
+      {/* { isVisibleFromSlice && ( */}
+        <AllInformation/>
+      {/* ) } */}
     </div>
   );
 };
