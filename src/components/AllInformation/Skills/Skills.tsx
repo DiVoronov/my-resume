@@ -10,16 +10,7 @@ import { RootState } from "../../../app/store";
 
 import { changeSoftSkills } from "../../../app/slices/appearSlice";
 import { useAppearForElement } from "../../../app/hooks";
-
-import { globalCustomStyles } from "../../../GlobalStyle";
-
-import {
-  paletteOne,
-  paletteTwo,
-  paletteThree,
-  paletteFour,
-  paletteFive
-} from "../../../app/context/themeContext/themeContext";
+import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../../app/context/themeContext/themeContext";
 
 export function Skills () {
 
@@ -27,7 +18,6 @@ export function Skills () {
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
   const isVisibleFromSlice: boolean = useSelector( (state: RootState) => state.appear.softSkills);
-  const currentTheme = useSelector( (state: RootState) => state.theme);
 
   useAppearForElement(refELement, changeSoftSkills, isVisibleFromSlice);
 
@@ -39,18 +29,19 @@ export function Skills () {
   const titleStack: ObjectLanguage = contentSkills.titleStack;
   const softSkills: ObjectLanguageParagraph = contentSkills.softSkills;
   
+  const currentTheme: string = useSelector( (state: RootState) => state.theme);
+  const themeColor: IThemesColor = useContext(ThemeContext);
+  const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
+
   return (
     <StyledSkillsDiv>
       <Box
         component="div"
         sx={{
-          // border: globalCustomStyles.globalBorder,
-          // background: globalCustomStyles.globalBackgroundDiv,
-          // boxShadow: globalCustomStyles.globalBoxShadow,
-          border: `3px solid ${paletteFour}`,
-          background: paletteTwo,
-          boxShadow: `8px 8px 0px ${paletteThree}`,
-          ["& div"]: {color: globalCustomStyles.globalAccentColor}
+          border: `3px solid ${currentThemeColor.paletteFour}`,
+          background: currentThemeColor.paletteTwo,
+          boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
+          ["& div"]: {color: currentThemeColor.accentColor}
         }}
       >
           <Box component="h2">Hard Skills</Box>
@@ -94,12 +85,9 @@ export function Skills () {
           <Box
           component="div"
           sx={{
-            // border: globalCustomStyles.globalBorder,
-            // background: globalCustomStyles.globalBackgroundDiv,
-            // boxShadow: globalCustomStyles.globalBoxShadow,
-            border: `3px solid ${paletteFour}`,
-            background: paletteTwo,
-            boxShadow: `8px 8px 0px ${paletteThree}`,
+            border: `3px solid ${currentThemeColor.paletteFour}`,
+            background: currentThemeColor.paletteTwo,
+            boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
           }}
           >
             <h2>Soft Skills:</h2>

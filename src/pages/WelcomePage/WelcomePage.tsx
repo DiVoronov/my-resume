@@ -5,16 +5,15 @@ import {
 import { useSelector } from "react-redux";
 import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../../components/componentsTypes";
-import { globalCustomStyles } from "../../GlobalStyle";
 import { RootState } from "../../app/store";
 import { NavLink } from "react-router-dom";
 import { StyledWelcomePageDiv } from "./WelcomePage.style";
 import { SharedWelcomeButton } from "./SharedWelcomeButton";
+import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../app/context/themeContext/themeContext";
 
 export function WelcomePage () {
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
-  const currentTheme = useSelector( (state: RootState) => state.theme);
 
   const contentWelcomePage = useContext(LanguageContext).welcomePage;
 
@@ -25,6 +24,10 @@ export function WelcomePage () {
   const toAboutApp: ObjectLanguage = contentWelcomePage.buttons.about;
   const toContacts: ObjectLanguage = contentWelcomePage.buttons.contacts;
   const buttonsArray: ObjectLanguage[] = [toCV, toAboutApp, toContacts];
+
+  const currentTheme: string = useSelector( (state: RootState) => state.theme);
+  const themeColor: IThemesColor = useContext(ThemeContext);
+  const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
   return (
     <StyledWelcomePageDiv>
@@ -38,13 +41,13 @@ export function WelcomePage () {
           display: "flex",
           flexDirection: "column",
           borderRadius: "25px",
-          color: globalCustomStyles.globalColor,
-          border: globalCustomStyles.globalBorder,
-          boxShadow: globalCustomStyles.globalBoxShadow, 
+          color: currentThemeColor.paletteFive,
+          boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
+          border: `1px solid ${currentThemeColor.paletteFour}`,
           alignItems: "center",
         }}
       >
-        <Box component="h1" sx={{color: globalCustomStyles.globalAccentColor}}>{firstTitle[languageFromSlice as keyof typeof firstTitle]}</Box>
+        <Box component="h1" sx={{color: currentThemeColor.accentColor}}>{firstTitle[languageFromSlice as keyof typeof firstTitle]}</Box>
         <Box component="p">{secondTitle[languageFromSlice as keyof typeof secondTitle]}</Box>
         <Box component="h2">{thirdTitle[languageFromSlice as keyof typeof thirdTitle]}</Box>
         <Box 

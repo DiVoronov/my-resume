@@ -16,7 +16,6 @@ import { changeLanguage } from "../../app/slices/languageSlice";
 
 import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../componentsTypes";
-import { globalCustomStyles } from "../../GlobalStyle";
 import { RootState } from "../../app/store";
 import { NavLink } from "react-router-dom";
 import { NavBarListPath } from "./NavBarListPath";
@@ -24,14 +23,7 @@ import { NavBarListPath } from "./NavBarListPath";
 import CustomizedSwitches from "./SwitchTheme";
 
 import logo from "../../logoBig.png";
-
-import {
-  paletteOne,
-  paletteTwo,
-  paletteThree,
-  paletteFour,
-  paletteFive
-} from "../../app/context/themeContext/themeContext";
+import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../app/context/themeContext/themeContext";
 
 export function NavBar () {
 
@@ -45,9 +37,11 @@ export function NavBar () {
   };
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
-  const currentTheme = useSelector( (state: RootState) => state.theme);
-
   const contentNavbar = useContext(LanguageContext).navbar;
+
+  const currentTheme: string = useSelector( (state: RootState) => state.theme);
+  const themeColor: IThemesColor = useContext(ThemeContext);
+  const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
   const stylePathXS = {
     display: "flex",
@@ -55,13 +49,9 @@ export function NavBar () {
     left: "1rem", top: "4rem",
     zIndex: "1301",
     ["& > div"]: {m: 1},
-    // background: globalCustomStyles.globalBackgroundDiv,
-    // border: globalCustomStyles.globalBorder,
-    // borderRadius: "20px",
-    // boxShadow: globalCustomStyles.globalBoxShadow,
-    boxShadow: `8px 8px 0px ${paletteThree}`,
-    background: paletteOne,
-    border: `1px solid ${paletteFour}`,
+    boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
+    background: currentThemeColor.paletteOne,
+    border: `1px solid ${currentThemeColor.paletteFour}`,
 
     flexDirection: {xs: "column", sm:"none"},
     justifyContent: {xs: "center", sm:"right"},
@@ -78,7 +68,6 @@ export function NavBar () {
 
   return (
     <AppBar position="static" sx={{
-      // borderRadius: "25px", 
       background: "none", 
       boxShadow: "none",
       mt: 0,
@@ -87,22 +76,18 @@ export function NavBar () {
       <Box 
         component="div" 
         sx={{
-          // borderRadius: "25px", 
-          // border: globalCustomStyles.globalBorder,
-          // boxShadow: globalCustomStyles.globalBoxShadow,
-          // background: globalCustomStyles.globalBackgroundDiv,
-          boxShadow: `8px 8px 0px ${paletteThree}`,
-          background: paletteOne,
-          borderBottom: `3px solid ${paletteFour}`,
+          boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
+          background: currentThemeColor.paletteOne,
+          borderBottom: `3px solid ${currentThemeColor.paletteFour}`,
           
           fontWeight: {xs: "normal", sm: "bold"},
-          pr: 1, pl: 1
+          pr: 1.5, pl: 1.5
         }}>
 
-        <Toolbar disableGutters sx={{display: "flex", justifyContent: {xs: "space-around", sm: "space-between"}, width: "100%"}}>
+        <Toolbar disableGutters sx={{display: "flex", justifyContent: "space-between", width: "100%"}}>
           <Box sx={{display: {xs: "none", sm: "flex"}}}>
             <StyledNavLink>
-              <NavLink to={"/"}><img src={logo} style={{border: `1px solid ${paletteFour}`, borderRadius: "50%"}} alt="logo"/></NavLink>
+              <NavLink to={"/"}><img src={logo} style={{border: `1px solid ${currentThemeColor.paletteFour}`, borderRadius: "50%"}} alt="logo"/></NavLink>
             </StyledNavLink>
           </Box>
           
@@ -152,12 +137,9 @@ export function NavBar () {
                     onChange={useHandleChangeLanguage}
                     sx={{
                       fontWeight: "bold", 
-                      // boxShadow: globalCustomStyles.globalBoxShadow, 
-                      // color: globalCustomStyles.globalColor, 
-                      // border: "1px solid #fff"
-                      color: paletteFive, 
+                      color: currentThemeColor.paletteFive, 
                       
-                      border: `1px solid ${paletteTwo}`
+                      border: `1px solid ${currentThemeColor.paletteTwo}`
                     }}
                   >
                     <MenuItem value={"en"}>EN</MenuItem>

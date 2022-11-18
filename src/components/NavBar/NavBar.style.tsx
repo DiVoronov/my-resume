@@ -1,8 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { globalCustomStyles } from "../../GlobalStyle";
-
 
 export const StyledNavLink = styled.div`
 font-family: 'Yanone Kaffeesatz', sans-serif;

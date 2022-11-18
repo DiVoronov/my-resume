@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-import {
-  paletteOne,
-  paletteTwo,
-  paletteThree,
-  paletteFour,
-  paletteFive,
-  accentColor
-} from "../../app/context/themeContext/themeContext";
-
 export const StyledPhotoHolder = styled.div`
 height: 100%;
 display: flex;
@@ -33,7 +24,6 @@ padding: 2rem;
     top: 30%;
     width: 50%;
     height: 2rem;
-    background: ${accentColor};
   }
   &:hover::before {
     display: none;

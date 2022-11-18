@@ -1,21 +1,14 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { PhotoAndDescribe } from "../components/PhotoAndDescribe/PhotoAndDescribe";
 import { AllInformation } from "../components/AllInformation/AllInformation";
-
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { changeAllInformation } from "../app/slices/appearSlice";
-import { useAppearForElement } from "../app/hooks";
+import { useDispatch } from "react-redux";
 import { hideWelcomePage } from "../app/slices/welcomeSlice";
 import { HighBlock } from "../components/ParallaxComponents/HighBlock";
+import { Parallax } from "react-scroll-parallax";
 
 export function CV () {
-  
-  const refELement = useRef(null);
 
-  const isVisibleFromSlice: boolean = useSelector( (state: RootState) => state.appear.allInformation);
-
-  // useAppearForElement(refELement, changeAllInformation, isVisibleFromSlice);
+  const [isVisibleAllInformation, setIsVisibleAllInformation] = useState(false);
 
   const dispatch = useDispatch();
   useEffect( () => {
@@ -26,10 +19,11 @@ export function CV () {
     <div style={{minHeight: "100vh"}}>
       <HighBlock/>
       <PhotoAndDescribe/>
-      {/* <div ref={refELement}></div> */}
-      {/* { isVisibleFromSlice && ( */}
-        <AllInformation/>
-      {/* ) } */}
+      <Parallax onEnter={() => setIsVisibleAllInformation(true)} style={{margin: "1rem", minWidth: "1rem", minHeight: "1rem"}}>
+        { isVisibleAllInformation && (
+          <AllInformation/>
+        )}
+      </Parallax>
     </div>
   );
 };

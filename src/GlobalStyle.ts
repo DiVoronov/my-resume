@@ -1,8 +1,5 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import { globalStyles } from "./app/context/themeContext/themeFunctionProvider"
-
-export const globalCustomStyles = globalStyles;
 
 export const GlobalStyle = createGlobalStyle`
   * {

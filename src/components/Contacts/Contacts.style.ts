@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { globalCustomStyles } from "../../GlobalStyle";
 
 export const StyledContactDiv = styled.div`
 max-height: 50%;

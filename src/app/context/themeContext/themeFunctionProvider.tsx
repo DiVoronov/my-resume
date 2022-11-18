@@ -14,19 +14,19 @@ export const globalStyles = {
   shadowNavLink: "inset 15px 15px 30px #191919, inset -15px -15px 30px #292929"
 };
 
-export function ThemeFunctionProvider() {
+// export function ThemeFunctionProvider() {
 
-  const themes = useContext(ThemeContext);
-  const currentTheme = useSelector( (state: RootState) => state.theme);
+//   const themes = useContext(ThemeContext);
+//   const currentTheme = useSelector( (state: RootState) => state.theme);
 
-  globalStyles.globalBorder = themes[currentTheme as keyof typeof themes].globalBorder;
-  globalStyles.globalBackgroundDiv =  themes[currentTheme as keyof typeof themes].globalBackgroundDiv;
-  globalStyles.globalAccentColor =  themes[currentTheme as keyof typeof themes].globalAccentColor;
-  globalStyles.globalColor = themes[currentTheme as keyof typeof themes].globalColor;
-  globalStyles.globalBoxShadow =  themes[currentTheme as keyof typeof themes].globalBoxShadow;
-  globalStyles.globalBoxShadowActive =  themes[currentTheme as keyof typeof themes].globalBoxShadowActive;
-  globalStyles.globalRootColor =  themes[currentTheme as keyof typeof themes].globalRootColor;
-  globalStyles.shadowNavLink =  themes[currentTheme as keyof typeof themes].shadowNavLink;
+//   globalStyles.globalBorder = themes[currentTheme as keyof typeof themes].globalBorder;
+//   globalStyles.globalBackgroundDiv =  themes[currentTheme as keyof typeof themes].globalBackgroundDiv;
+//   globalStyles.globalAccentColor =  themes[currentTheme as keyof typeof themes].globalAccentColor;
+//   globalStyles.globalColor = themes[currentTheme as keyof typeof themes].globalColor;
+//   globalStyles.globalBoxShadow =  themes[currentTheme as keyof typeof themes].globalBoxShadow;
+//   globalStyles.globalBoxShadowActive =  themes[currentTheme as keyof typeof themes].globalBoxShadowActive;
+//   globalStyles.globalRootColor =  themes[currentTheme as keyof typeof themes].globalRootColor;
+//   globalStyles.shadowNavLink =  themes[currentTheme as keyof typeof themes].shadowNavLink;
 
-  return (<></>);
-};
+//   return (<></>);
+// };

@@ -7,35 +7,25 @@ import { CV } from "./pages/CV";
 import { ContactsPage } from "./pages/Contacts";
 import { AboutPage } from "./pages/AboutPage";
 import { GlobalStyle } from "./GlobalStyle";
-import { ThemeFunctionProvider } from "./app/context/themeContext/themeFunctionProvider";
-import { ThemeContext } from "./app/context/themeContext/themeContext";
 
 import { useSelector } from "react-redux";
 import { RootState } from './app/store';
 import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
-
-import {
-  paletteOne,
-  paletteTwo,
-  paletteThree,
-  paletteFour,
-  paletteFive
-} from "./app/context/themeContext/themeContext";
+import { IThemesColor, ThemeContext, ICurrentThemesColor } from "./app/context/themeContext/themeContext";
 
 export function App() {
-  const currentTheme = useSelector( (state: RootState) => state.theme);
+
   const isRenderWelcome = useSelector( (state: RootState)=> state.welcomePage);
-  const themes = useContext(ThemeContext);
-  const globalRootColor = themes[currentTheme as keyof typeof themes].globalRootColor;
+
+  const currentTheme: string = useSelector( (state: RootState) => state.theme);
+  const themeColor: IThemesColor = useContext(ThemeContext);
+  const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
   return (
     <Box component="div" sx={{
-      // p: 1, 
-      // background: globalRootColor
-      background: paletteOne
+      background: currentThemeColor.paletteOne,
       }}>
       <GlobalStyle/>
-      <ThemeFunctionProvider/>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <NavBar/>
         <Routes>
