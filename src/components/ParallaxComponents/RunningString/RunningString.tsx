@@ -5,7 +5,11 @@ import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../../app/co
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
-export function RunningString () {
+interface IPropsForRunningString {
+  runningStringText: string
+}
+
+export function RunningString ( runningStringText: IPropsForRunningString) {
 
   const currentTheme: string = useSelector( (state: RootState) => state.theme);
   const themeColor: IThemesColor = useContext(ThemeContext);
@@ -21,13 +25,13 @@ export function RunningString () {
         style={{position: "absolute", top: "10%", left: "0px"}}
         translateX={["-500px", "0px"]}
       >
-        <span style={{fontSize: "1rem", color: currentThemeColor.paletteFive, fontWeight: "800", opacity: "0.8"}}> resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_</span>
+        {/* <span style={{fontSize: "1rem", color: currentThemeColor.paletteFive, fontWeight: "900", letterSpacing: "2px", fontFamily: "Yanone Kaffeesatz", opacity: "0.8"}}> {runningStringText.runningStringText}</span> */}
       </Parallax>
       <Parallax 
         style={{position: "absolute", top: "10%", left: "0px"}}
-        translateX={["0px", "-200px"]}
+        translateX={["0px", "-500px"]}
       >
-        <span style={{fontSize: "1rem", color: currentThemeColor.paletteOne, fontWeight: "800", opacity: "0.8"}}> resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_</span>
+        <span style={{fontSize: "1rem", color: currentThemeColor.paletteFive, fontWeight: "900", letterSpacing: "2px", fontFamily: "Yanone Kaffeesatz", opacity: "0.8"}}> {runningStringText.runningStringText}</span>
       </Parallax>
     </Box>
   );

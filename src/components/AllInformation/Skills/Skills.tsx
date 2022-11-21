@@ -33,6 +33,10 @@ export function Skills () {
   const themeColor: IThemesColor = useContext(ThemeContext);
   const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
+  function LeftIcon () {
+    return <RemoveIcon color={currentTheme === "dark" ? "error" : "info"}/>
+  }
+
   return (
     <StyledSkillsDiv>
       <Box
@@ -47,35 +51,37 @@ export function Skills () {
           <Box component="h2">Hard Skills</Box>
             <ul>
               <li>
-                <div>{titleProgrammingLang[languageFromSlice as keyof typeof titleProgrammingLang]}</div>
+                <div style={{marginBottom: "1rem"}}>{titleProgrammingLang[languageFromSlice as keyof typeof titleProgrammingLang]}</div>
                 <ul>
-                  <li><span><RemoveIcon color="secondary"/>TypeScript</span></li>
-                  <li><span><RemoveIcon color="secondary"/>JavaScript (ES6+)</span></li>
+                  <li><span><LeftIcon/>TypeScript</span></li>
+                  <li><span><LeftIcon/>JavaScript (ES6+)</span></li>
                 </ul>
               </li>
               <li>
-                <div>{titleStack[languageFromSlice as keyof typeof titleStack]}</div>
+                <div style={{marginBottom: "1rem"}}>{titleStack[languageFromSlice as keyof typeof titleStack]}</div>
                 <ul>
-                  <li><span><RemoveIcon color="secondary"/>React</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Redux</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Git/Github</span></li>
-                  <li><span><RemoveIcon color="secondary"/>SASS/SCSS</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Redux Toolkit ( + RTK Query)</span></li>
-                  <li><span><RemoveIcon color="secondary"/>React Router DOM</span></li>
-                  <li><span><RemoveIcon color="secondary"/>React Transition Group</span></li>
-                  <li><span><RemoveIcon color="secondary"/>React hooks: (useState, useEffect, useContext, useReduser, useRef, useMemo, useCallback)</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Intersection Observer</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Material UI</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Bootstrap</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Materialize CSS</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Styled Components</span></li>
+                  <li><span><LeftIcon/>React</span></li>
+                  <li><span><LeftIcon/>Redux</span></li>
+                  <li><span><LeftIcon/>Git/Github</span></li>
+                  <li><span><LeftIcon/>SASS/SCSS</span></li>
+                  <li><span><LeftIcon/>Redux Toolkit ( + RTK Query)</span></li>
+                  <li><span><LeftIcon/>React Router</span></li>
+                  <li><span><LeftIcon/>react-scroll-parallax</span></li>
+                  <li><span><LeftIcon/>react-transition-group</span></li>
+                  <li><span><LeftIcon/>React hooks: (useState, useEffect, useContext, useReduser, useRef, useMemo, useCallback)</span></li>
+                  <li><span><LeftIcon/>Intersection Observer</span></li>
+                  <li><span><LeftIcon/>Styled Components</span></li>
+                  <li><span><LeftIcon/>Material UI</span></li>
+                  <li><span><LeftIcon/>Bootstrap</span></li>
+                  <li><span><LeftIcon/>Tailwind CSS</span></li>
+                  <li><span><LeftIcon/>Materialize CSS</span></li>
                 </ul>
               </li>
               <li>
-                <div>{titleLang[languageFromSlice as keyof typeof titleLang]}</div>
+                <div style={{marginBottom: "1rem"}}>{titleLang[languageFromSlice as keyof typeof titleLang]}</div>
                 <ul>
-                  <li><span><RemoveIcon color="secondary"/>English - B1</span></li>
-                  <li><span><RemoveIcon color="secondary"/>Українська - {ukrainian[languageFromSlice as keyof typeof ukrainian]}</span></li>
+                  <li><span><LeftIcon/>English - B1</span></li>
+                  <li><span><LeftIcon/>Українська - {ukrainian[languageFromSlice as keyof typeof ukrainian]}</span></li>
                 </ul>
               </li>
             </ul>
@@ -93,7 +99,7 @@ export function Skills () {
             <h2>Soft Skills:</h2>
             <ul>
               {softSkills[languageFromSlice as keyof typeof softSkills].map( (paragraph: string, index: number) => {
-                return (<li key={index}><span><RemoveIcon color="secondary"/>{paragraph}</span></li>);
+                return (<li key={index}><span><LeftIcon/>{paragraph}</span></li>);
               })}
             </ul>
           </Box>

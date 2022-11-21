@@ -33,7 +33,7 @@ export function NavBarListPath ( { styleBox }: any ) {
           <StyledNavLink key={index}>
             <Box 
               sx={{
-                ["&:hover"]: {boxShadow: `5px 5px 0px ${currentThemeColor.paletteThree}`, border: `1px solid ${currentThemeColor.paletteThree}`, color: currentThemeColor.paletteThree},
+                ["&:hover"]: {boxShadow: `5px 5px 0px ${currentThemeColor.accentColor}`, border: `1px solid ${currentThemeColor.accentColor}`, color: currentThemeColor.paletteThree},
                 ["& a"]: {color: currentThemeColor.paletteFour},
                 ["& a:hover"]: {color: currentThemeColor.paletteThree},
               }}

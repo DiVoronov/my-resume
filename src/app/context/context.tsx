@@ -41,18 +41,19 @@ export const contentLanguages = {
       }
     },
     allInformation: {
-      workExperiense: {
-        titleExperiense: {
-          en: "Work Experiense",
+      workExperience: {
+        titleExperience: {
+          en: "Work Experience",
           ua: "Досвід роботи"
         },
-        listExperiense: {
+        listExperience: {
           en: [
             {index: 0, type: "h", value: "Today - ..."},
             {index: 1, type: "p", value: "{/* Your Company may be here */}"},
             {index: 2, type: "h", value: "August 2022 - Today"},
-            {index: 3, type: "p", value: "Open Source Web Application Development Practices"},
-            {index: 4, type: "li", value: "Reproduction of existing projects to introduce programming skills"},
+            {index: 3, type: "p", value: "Freelance"},
+            {index: 4, type: "li", value: "Participation in the creation of landing pages and individual components of web applications"},
+            {index: 4.5, type: "li", value: "Open Source Web Application Development Practices"},
             {index: 5, type: "h", value: "May 2022 - Today"},
             {index: 6, type: "p", value: "Learning to program in JavaScript and TypeScript"},
             {index: 7, type: "h", value: "March 2017 - May 2017"},
@@ -68,8 +69,9 @@ export const contentLanguages = {
             {index: 0, type: "h", value: "Сьогодні - ..."},
             {index: 1, type: "p", value: "{/* Тут може бути ваша Компанія */}"},
             {index: 2, type: "h", value: "Серпень 2022 - Сьогодні"},
-            {index: 3, type: "p", value: "Практика створення веб-застосунків за відкритими джерелами"},
-            {index: 4, type: "li", value: "Відтворення існуючих проектів з метою впровадження навичок програмування"},
+            {index: 3, type: "p", value: "Фріланс"},
+            {index: 4, type: "li", value: "Участь у створенні лендінгів та окремих компонентів веб-застосунків"},
+            {index: 4.5, type: "li", value: "Практика створення веб-застосунків за відкритими джерелами"},
             {index: 5, type: "h", value: "Травень 2022 - Сьогодні"},
             {index: 6, type: "p", value: "Навчання програмуванню мовами JavaScript та TypeScript"},
             {index: 7, type: "h", value: "Березень 2017 - травень 2017"},
@@ -147,8 +149,8 @@ export const contentLanguages = {
       ua: "Про цей веб-додаток"
     },
     text: {
-      en: ["This web application is written entirely in TypeScript with the necessary typing, in particular when making asynchronous requests in the avatar.api.ts file, because strictly typing the response from the server will help prevent possible errors.", "This web application implements routing using the React Router DOM, which allows you to move between pages without rendering delays.", "A language change system is also implemented using the Redux Toolkit by dispatching a string with the desired language to the state stored in languageSlice.tsx. Such logic provides instant rendering of only those elements that depend on the state of the language.", "The application implements an avatar using RTK Query: an asynchronous request is made to api.github.com, to which a special fetchBaseQuery request is sent to obtain information on the DiVoronov account. After - a link to the avatar from GitHub is transferred from the received object to the PhotoHolder component.", "The above component handles possible errors, and depending on the response from the server renders: either a Skeleton loader if the status isLoading, or an avatar from GitHub if the response from the server is successful, or a special image if an error occurred.", "The smooth appearance of elements when scrolling to the bottom of the screen is implemented using the Intersection Observer.", "Instant change between dark and light themes are implemented using the Redux Toolkit by dispatching a string with the desired theme to the state stored in themeSlice.tsx. And then each component accepts the corresponding state and, in accordance with it, applies variable topics created using createContext.", "The main components are imported from the Material UI library.", "For code cleanliness and ease of styling, some components are styled using the Styled Components library. Additionally, global styles are set via createGlobalStyle.", "Styling uses SCSS syntax using multi-level nesting and variables."],
-      ua: ["Даний веб-застосунок повністю написаний на TypeScript із необхідною типізацією, зокрема при здійсненні асинхронних запитів у файлі avatar.api.ts, оскільки строга типізація відповіді із серверу допоможе запобігти вірогідним помилкам.", "У даному веб-застосунку реалізований роутінг за допомогою React Router DOM, що надає змогу переходу між сторінками без затримки рендерінгу.", "Також реалізована система зміни мови завдяки використанню Redux Toolkit через діспатчінг строки з бажаною мовою до стейту, що зберігається у languageSlice.tsx. Така логіка забезпечує моментальний рендерінг тільки тих елементів, які залежать від стейту мови.", "У застосунку реалізовано аватар за допомогою RTK Query: робиться асинхронний запит на api.github.com, якому передається спеціальний запит за fetchBaseQuery на отримання інформації по акаунту DiVoronov. Після - з отриманого об'єкту передається посилання на аватар з GitHub у компонент PhotoHolder.", "Вищезазначений компонент обробляє вірогідні помилки, та залежно від відповіді з серверу рендерить: або лоадер Skeleton, якщо статус isLoading, або аватар з GitHub, якщо відповідь з серверу є успішною, або спеціальну картинку, якщо відбулася помилка.", "Плавна поява елементів при прокрутці до низу екрану реалізована за допомогою Intersection Observer.", "Миттєва зміна темної та світлої тем реалізовано завдяки використанню Redux Toolkit через діспатчінг строки з бажаною темою до стейту, що зберігається у themeSlice.tsx. А далі кожен компонент приймає відповідний стейт та, відповідно до нього, застосовує перемінні теми, що створені за допомогою createContext.", "Основні компоненти імпортовані з бібліотеки Material UI.", "З метою чистоти коду та зручності стилізації, деякі компоненти стилізовано за допомогою бібліотеки Styled Components. Окрім того, глобальні стилі задано через createGlobalStyle.", "Для стилізації використовується синтаксис SCSS із використанням многорівневої вкладеності та перемінних."]
+      en: ["This web application is written entirely in TypeScript with the necessary typing, in particular when making asynchronous requests in the avatar.api.ts file, because strictly typing the response from the server will help prevent possible errors.", "This web application implements routing using the React Router DOM, which allows you to move between pages without rendering delays.", "A language change system is also implemented using the Redux Toolkit by dispatching a string with the desired language to the state stored in languageSlice.tsx. Such logic provides instant rendering of only those elements that depend on the state of the language.", "The application implements an avatar using RTK Query: an asynchronous request is made to api.github.com, to which a special fetchBaseQuery request is sent to obtain information on the DiVoronov account. After - a link to the avatar from GitHub is transferred from the received object to the PhotoHolder component.", "The above component handles possible errors, and depending on the response from the server renders: either a Skeleton loader if the status isLoading, or an avatar from GitHub if the response from the server is successful, or a special image if an error occurred.", "Animation of moving components and smooth appearance of elements when scrolling to the bottom of the screen is implemented using react-scroll-parallax. In the 'Soft Skills' component, the smooth appearance of the element is implemented using the Intersection Observer (only for the purpose of demonstrating the skill).", "Instant change between dark and light themes are implemented using the Redux Toolkit by dispatching a string with the desired theme to the state stored in themeSlice.tsx. And then each component accepts the corresponding state and, in accordance with it, applies variable topics created using createContext.", "The main components are imported from the Material UI library.", "For code cleanliness and ease of styling, some components are styled using the Styled Components library. Additionally, global styles are set via createGlobalStyle.", "Styling uses SCSS syntax using multi-level nesting and variables."],
+      ua: ["Даний веб-застосунок повністю написаний на TypeScript із необхідною типізацією, зокрема при здійсненні асинхронних запитів у файлі avatar.api.ts, оскільки строга типізація відповіді із серверу допоможе запобігти вірогідним помилкам.", "У даному веб-застосунку реалізований роутінг за допомогою React Router DOM, що надає змогу переходу між сторінками без затримки рендерінгу.", "Також реалізована система зміни мови завдяки використанню Redux Toolkit через діспатчінг строки з бажаною мовою до стейту, що зберігається у languageSlice.tsx. Така логіка забезпечує моментальний рендерінг тільки тих елементів, які залежать від стейту мови.", "У застосунку реалізовано аватар за допомогою RTK Query: робиться асинхронний запит на api.github.com, якому передається спеціальний запит за fetchBaseQuery на отримання інформації по акаунту DiVoronov. Після - з отриманого об'єкту передається посилання на аватар з GitHub у компонент PhotoHolder.", "Вищезазначений компонент обробляє вірогідні помилки, та залежно від відповіді з серверу рендерить: або лоадер Skeleton, якщо статус isLoading, або аватар з GitHub, якщо відповідь з серверу є успішною, або спеціальну картинку, якщо відбулася помилка.", "Анімація рухливих компонентів, а також плавна поява елементів при прокрутці до низу екрану реалізована за допомогою react-scroll-parallax. У компоненті 'Soft Skills' плавна поява елементу реалізована за допомогою Intersection Observer (виключно з метою демонстрації навику).", "Миттєва зміна темної та світлої тем реалізовано завдяки використанню Redux Toolkit через діспатчінг строки з бажаною темою до стейту, що зберігається у themeSlice.tsx. А далі кожен компонент приймає відповідний стейт та, відповідно до нього, застосовує перемінні теми, що створені за допомогою createContext.", "Основні компоненти імпортовані з бібліотеки Material UI.", "З метою чистоти коду та зручності стилізації, деякі компоненти стилізовано за допомогою бібліотеки Styled Components. Окрім того, глобальні стилі задано через createGlobalStyle.", "Для стилізації використовується синтаксис SCSS із використанням многорівневої вкладеності та перемінних."]
     }
   },
   contacts: {
@@ -181,6 +183,20 @@ export const contentLanguages = {
         en: "PAGE WITH MY CONTACTS",
         ua: "СТОРІНКА ІЗ МОЇМИ КОНТАКТАМИ"
       }
+    }
+  },
+  parallaxArticles: {
+    aboutApp: {
+      en: ["About", "this APP"],
+      ua: ["Про цей", "Додаток"]
+    },
+    aboutMe: {
+      en: ["About", "Me"],
+      ua: ["Про", "Мене"]
+    },
+    runningString: {
+      en: "resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_resume_",
+      ua: "резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_резюме_"
     }
   }
 };

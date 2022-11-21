@@ -17,8 +17,8 @@ export function BigTextShared ( { innerText }: IBigTextProps ) {
 
   return (
     <StyledBigText>
-      <Box component="span" sx={{color: currentThemeColor.paletteFour, textShadow: `3px 3px 0px ${currentThemeColor.paletteFive}`}}>{innerText[0]}</Box>
-      <Box component="span" sx={{color: currentThemeColor.paletteFour, textShadow: `3px 3px 0px ${currentThemeColor.paletteFive}`}}>{innerText[1]}</Box>
+      <Box component="span" sx={{color: currentThemeColor.paletteFour, textShadow: {xs: `1px 1px 0px ${currentThemeColor.paletteFive}`, sm: `3px 3px 0px ${currentThemeColor.paletteFive}` } }}>{innerText[0]}</Box>
+      <Box component="span" sx={{color: currentThemeColor.paletteFour, textShadow: {xs: `1px 1px 0px ${currentThemeColor.paletteFive}`, sm: `3px 3px 0px ${currentThemeColor.paletteFive}` } }}>{innerText[1]}</Box>
     </StyledBigText>
   );
 };

@@ -4,6 +4,7 @@ import { avatarApi } from "./avatar.api/avatar.api";
 import { appearReducer } from "./slices/appearSlice";
 import { themeReducer } from "./slices/themeSlice";
 import { welcomeReducer } from "./slices/welcomeSlice";
+import { menuCloseReducer } from "./slices/menuCloseSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     appear: appearReducer,
     theme: themeReducer,
     welcomePage: welcomeReducer,
+    closeMenu: menuCloseReducer,
     [avatarApi.reducerPath]: avatarApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(avatarApi.middleware)

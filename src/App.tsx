@@ -8,10 +8,11 @@ import { ContactsPage } from "./pages/Contacts";
 import { AboutPage } from "./pages/AboutPage";
 import { GlobalStyle } from "./GlobalStyle";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from './app/store';
 import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 import { IThemesColor, ThemeContext, ICurrentThemesColor } from "./app/context/themeContext/themeContext";
+import { closeMenu, openMenu } from "./app/slices/menuCloseSlice";
 
 export function App() {
 
@@ -21,9 +22,20 @@ export function App() {
   const themeColor: IThemesColor = useContext(ThemeContext);
   const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
+  const dispatch = useDispatch();
+  const isMenuOpenFromSlice: boolean = useSelector( (state: RootState) => state.closeMenu);
+  const closeMenuInApp = (action: boolean) => {
+    isMenuOpenFromSlice && dispatch(closeMenu(action));
+  };
+  const rootContainer = document.getElementById("root")!;
+  rootContainer.style.background = currentThemeColor.paletteOne;
+
   return (
-    <Box component="div" sx={{
-      background: currentThemeColor.paletteOne,
+    <Box 
+      component="div" 
+      onClick={() => closeMenuInApp(false)}
+      sx={{
+        background: currentThemeColor.paletteOne,
       }}>
       <GlobalStyle/>
       <BrowserRouter basename={process.env.PUBLIC_URL}>

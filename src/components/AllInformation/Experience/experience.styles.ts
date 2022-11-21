@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const StyledExperienseComponent = styled.div`
+export const StyledExperienceComponent = styled.div`
 & span {
   display: flex;
   align-items: center;

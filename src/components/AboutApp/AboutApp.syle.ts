@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledAboutApp = styled.div`
 display: flex; 
 flex-direction: column; 
+padding: 1rem;
 & span {
   margin-bottom: 20px;
   display: flex;

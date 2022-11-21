@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -24,6 +24,8 @@ import CustomizedSwitches from "./SwitchTheme";
 
 import logo from "../../logoBig.png";
 import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../app/context/themeContext/themeContext";
+import { useToggleMenu } from "../../app/hooks";
+import { closeMenu, openMenu } from "../../app/slices/menuCloseSlice";
 
 export function NavBar () {
 
@@ -39,6 +41,11 @@ export function NavBar () {
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
   const contentNavbar = useContext(LanguageContext).navbar;
 
+  const isMenuOpenFromSlice: boolean = useSelector( (state: RootState) => state.closeMenu);
+  const toggleMenu = (action: boolean) => {
+    action === false ? dispatch(closeMenu(false)) : dispatch(openMenu(true));
+  };
+
   const currentTheme: string = useSelector( (state: RootState) => state.theme);
   const themeColor: IThemesColor = useContext(ThemeContext);
   const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
@@ -46,7 +53,8 @@ export function NavBar () {
   const stylePathXS = {
     display: "flex",
     position: "fixed",
-    left: "1rem", top: "4rem",
+    left: "1rem", 
+    top: "4rem",
     zIndex: "1301",
     ["& > div"]: {m: 1},
     boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
@@ -98,10 +106,14 @@ export function NavBar () {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2, display: "flex", flexDirection: "column" }}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={(event) => {
+                event.preventDefault();
+                toggleMenu(!isMenuOpenFromSlice);
+              }}
+              
             >
-              <MenuIcon color="secondary" />
-              { isMenuOpen && <NavBarListPath styleBox={stylePathXS}/> }
+              <MenuIcon color={currentTheme === "dark" ? "inherit" : "info"} />
+              { isMenuOpenFromSlice && <NavBarListPath styleBox={stylePathXS}/> }
             </IconButton>
           </Box>
 
@@ -129,7 +141,7 @@ export function NavBar () {
                 justifyContent: "right",
                 alignItems: "center"
               }}>
-                <FormControl size="small" color="secondary" fullWidth onChange={(event) => event.preventDefault()}>
+                <FormControl size="small" color={currentTheme === "dark" ? "error" : "info"} fullWidth onChange={(event) => event.preventDefault()}>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

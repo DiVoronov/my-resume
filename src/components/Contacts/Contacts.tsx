@@ -31,7 +31,7 @@ export function Contacts () {
         <h1>{contentContact[languageFromSlice as keyof typeof contentContact]}</h1>
         <div><span>E-mail:</span> <a>devdivoron@gmail.com</a></div>
         <div><span>GitHub:</span> <a href="https://github.com/DiVoronov" target="_blank">https://github.com/DiVoronov</a></div>
-        <div><span>LinkedIN:</span> <a href="https://www.linkedin.com/in/dmytro-voronov-1711a1251/" target="_blank">https://www.linkedin.com/in/dmytro-voronov-1711a1251/</a></div>
+        <div><span>LinkedIN:</span> <a href="https://www.linkedin.com/in/dmytro-voronov-frontend-dev/" target="_blank">https://www.linkedin.com/in/dmytro-voronov-frontend-dev/</a></div>
       </Box>
       
     </StyledContactDiv>

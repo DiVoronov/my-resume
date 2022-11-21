@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { LanguageContext } from "../../app/context/context";
 import { ObjectLanguage } from "../componentsTypes";
 import { useSelector } from "react-redux";
-import { Experiense } from "./Experiense/Experiense";
+import { Experience } from "./Experience/Experience";
 import { Skills } from "./Skills/Skills";
 import { AboutMe } from "./AboutMe/AboutMe";
 import { StyledHeader } from "./AllInformation.style";
@@ -11,13 +11,13 @@ import { RootState } from "../../app/store";
 import { Parallax } from "react-scroll-parallax";
 import { IThemesColor, ThemeContext, ICurrentThemesColor } from "../../app/context/themeContext/themeContext";
 
-export function AllInformation () {
+export function AllInformation () { 
 
   const languageFromSlice: string = useSelector( (state: RootState) => state.language);
 
   const contentCardDescribe = useContext(LanguageContext).home.allInformation;
 
-  const experiense: ObjectLanguage = contentCardDescribe.workExperiense.titleExperiense;
+  const experience: ObjectLanguage = contentCardDescribe.workExperience.titleExperience;
   const aboutMe: ObjectLanguage = contentCardDescribe.aboutMe.titleAboutMe;
 
   const currentTheme: string = useSelector( (state: RootState) => state.theme);
@@ -40,7 +40,6 @@ export function AllInformation () {
         flexDirection: "column",
         borderRadius: "25px",
         color: currentThemeColor.paletteFive,
-
       }}
     >
       <Box 
@@ -52,7 +51,7 @@ export function AllInformation () {
         }}>
         <Box 
           component="div" 
-          className="workExperiense appearDiv" 
+          className="workExperience appearDiv" 
           sx={{
             border: `3px solid ${currentThemeColor.paletteFour}`,
             background: currentThemeColor.paletteTwo,
@@ -63,8 +62,8 @@ export function AllInformation () {
             mb: {xs: "1rem", md: "2rem"},
             p: 2
           }}>
-          <StyledHeader>{experiense[languageFromSlice as keyof typeof experiense]}</StyledHeader>
-          <Experiense/>
+          <StyledHeader>{experience[languageFromSlice as keyof typeof experience]}</StyledHeader>
+          <Experience/>
         </Box>
         <Parallax onEnter={() => setIsVisibleHardSkills(true)}>
           { isVisibleHardSkills && 
@@ -72,8 +71,6 @@ export function AllInformation () {
               component="div" 
               className="listSkills appearDiv" 
               sx={{
-                borderRadius: "25px",
-                width: {lg: "50%"}, 
                 m: {xs: "5px", md: "20px"}, 
                 mb: {xs: "1rem", md: "2rem"},
               }}>

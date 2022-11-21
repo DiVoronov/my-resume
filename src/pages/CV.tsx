@@ -19,7 +19,10 @@ export function CV () {
     <div style={{minHeight: "100vh"}}>
       <HighBlock/>
       <PhotoAndDescribe/>
-      <Parallax onEnter={() => setIsVisibleAllInformation(true)} style={{margin: "1rem", minWidth: "1rem", minHeight: "1rem"}}>
+      <Parallax onEnter={() => setIsVisibleAllInformation(true)} 
+        style={{
+            margin: "1rem", minWidth: "1rem", minHeight: "1rem"
+          }}>
         { isVisibleAllInformation && (
           <AllInformation/>
         )}

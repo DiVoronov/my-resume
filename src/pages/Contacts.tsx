@@ -19,22 +19,22 @@ export function ContactsPage () {
   const currentThemeColor: ICurrentThemesColor = themeColor[currentTheme as keyof typeof themeColor];
 
   return (
-      <Box 
-        component="div" 
-        className="allInfo appearDiv" 
-        sx={{
-          m: 1, p: 1, mt: 3,
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-          borderRadius: "25px",
-          color: currentThemeColor.paletteFive,
-          boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
-          background: currentThemeColor.paletteOne,
-          border: `1px solid ${currentThemeColor.paletteFour}`,
-        }}
-      >
-        <Contacts/>
-      </Box>
+    <Box 
+      component="div" 
+      className="allInfo appearDiv" 
+      sx={{
+        m: 2, p: 1, mt: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+        borderRadius: "25px",
+        color: currentThemeColor.paletteFive,
+        boxShadow: `8px 8px 0px ${currentThemeColor.paletteThree}`,
+        background: currentThemeColor.paletteOne,
+        border: `1px solid ${currentThemeColor.paletteFour}`,
+      }}
+    >
+      <Contacts/>
+    </Box>
   );
 };

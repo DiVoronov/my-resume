@@ -12,7 +12,6 @@ align-items: center;
 border-radius: 25px;
 margin: 2rem;
 padding: 2rem;
-
 & .avatarAPI {
   position: relative;
   &::before {

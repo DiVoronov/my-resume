@@ -24,7 +24,7 @@ export function AboutApp () {
     <StyledAboutApp>
       <h1 style={{color: currentThemeColor.accentColor}}>{aboutTitle[languageFromSlice as keyof typeof aboutTitle]}</h1>
       {aboutText[languageFromSlice as keyof typeof aboutText].map((paragraph: string, index: number) => {
-        return (<span key={index}><RemoveIcon color="secondary"/> { paragraph } </span>)
+        return (<span key={index}><RemoveIcon color={currentTheme === "dark" ? "error" : "info"}/> { paragraph } </span>)
       })}
     </StyledAboutApp>
   );
