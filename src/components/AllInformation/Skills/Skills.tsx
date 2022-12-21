@@ -80,7 +80,7 @@ export function Skills () {
               <li>
                 <div style={{marginBottom: "1rem"}}>{titleLang[languageFromSlice as keyof typeof titleLang]}</div>
                 <ul>
-                  <li><span><LeftIcon/>English - B1</span></li>
+                  <li><span><LeftIcon/>English - B2</span></li>
                   <li><span><LeftIcon/>Українська - {ukrainian[languageFromSlice as keyof typeof ukrainian]}</span></li>
                 </ul>
               </li>

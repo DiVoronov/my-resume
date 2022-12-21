@@ -14,7 +14,7 @@ export function CircleSpin () {
   
   return (
     <Parallax style={{width: "40vw", display: "flex", justifyContent: "center"}}>
-      <NavLink to="/about" style={{width: "40vw", display: "flex", justifyContent: "center"}}>
+      <NavLink to="/about" style={{width: "40vw", display: "flex", justifyContent: "center", textDecoration: "none"}}>
         <StyledSVG viewBox="0 0 70 70" width="90%" >
           <defs>
             <path d="M35,35m -23, 0a23,23 0 1,1 46, 0a23,23 0 1,1 -46,0" fill={currentThemeColor.accentColor} id="textCircle"/>
